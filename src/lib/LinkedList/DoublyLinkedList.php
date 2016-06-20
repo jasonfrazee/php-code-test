@@ -341,17 +341,17 @@ class DoublyLinkedList
             throw new Exception("List is empty.");
         }
 
-        $current = $this->head;
+        $currentNode = $this->head;
         $this->tail = $this->head;
         $temp    = null;
-        while ($current != null) {
-            $temp = $current->previous;
+        while ($currentNode != null) {
+            $temp = $currentNode->previous;
             
-            $current->previous = $current->next;
-            $current->next = $temp;
-            $current = $current->previous;
+            $currentNode->previous = $currentNode->next;
+            $currentNode->next = $temp;
+            $currentNode = $currentNode->previous;
         }
-        if ($temp != NULL) {
+        if ($temp != null) {
             $this->head = $temp->previous;
         }
 
